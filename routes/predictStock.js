@@ -2,9 +2,10 @@ const express = require("express");
 const router = express.Router();
 
 const YahooFinance = require("yahoo-finance2").default;
+const { fetch } = require("undici"); // ✅ FIX
 
 const yahooFinance = new YahooFinance({
-  fetch: global.fetch,
+  fetch,
   suppressNotices: ["ripHistorical"],
 });
 
